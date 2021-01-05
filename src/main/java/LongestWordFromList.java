@@ -16,16 +16,12 @@ import java.util.Scanner;
 public class LongestWordFromList {
     public static String LongestWord(String sen) {
 
-        String[] array = sen.split(" ");
+        String[] array = sen.replaceAll("[^a-zA-Z0-9\\s]","").split(" ");
 
             int index = 0;
             int maxLength = 0;
 
             for (int i = 0; i < array.length; i++) {
-                if (!array[i].matches("[A-Za-z0-9]+")) {
-                    array[i] = array[i].replaceAll("[^a-zA-Z0-9]", "");
-                }
-
                 if(maxLength < array[i].length()){
                     maxLength = array[i].length();
                     index = i;
